@@ -4,6 +4,11 @@
 #include <QMainWindow>
 #include <QToolButton>
 #include <QGridLayout>
+#include <QVBoxLayout>
+#include <QHBoxLayout>
+#include <QPushButton>
+#include <QSpinBox>
+#include <QLabel>
 
 
 class MainWindow : public QMainWindow
