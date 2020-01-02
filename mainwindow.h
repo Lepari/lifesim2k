@@ -3,28 +3,26 @@
 
 #include <QMainWindow>
 #include <QToolButton>
-#include <QGridLayout>
 #include <QVBoxLayout>
 #include <QHBoxLayout>
 #include <QPushButton>
 #include <QSpinBox>
 #include <QLabel>
 
+#include "lifegrid.h"
 
 class MainWindow : public QMainWindow
 {
     Q_OBJECT
 public slots:
-    void sizeChanged(int value);
-
+    void sizeChanged(int size);
 private:
-    QVector<QVector<QToolButton *> > m_buttons;
     QWidget* m_central;
-    int m_size;
     void populateLifeButtons();
-    QGridLayout *m_grid_layout;
     QVBoxLayout *m_top_layout;
     QHBoxLayout *m_button_layout;
+    LifeGrid *m_grid_widget;
+    QSpacerItem *m_button_pacer;
 public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
