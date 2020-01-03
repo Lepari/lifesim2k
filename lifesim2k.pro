@@ -21,6 +21,7 @@ SOURCES += \
     lifegrid.cpp
 
 HEADERS += \
+    definitions.h \
     mainwindow.h \
     lifegrid.h
 

@@ -1,8 +1,10 @@
 #include "lifegrid.h"
+#include "mainwindow.h"
+#include "definitions.h"
 
 LifeGrid::LifeGrid(QWidget *parent) : QWidget(parent)
 {
-    m_size = 9;
+    m_size = LIFE_GRID_INITIAL_SIZE;
     m_grid_layout = nullptr;
     populateLifeButtons();
     setSizePolicy(QSizePolicy(QSizePolicy::Minimum,QSizePolicy::Minimum));
@@ -31,6 +33,7 @@ void LifeGrid::populateLifeButtons()
             m_buttons[i][j]->setEnabled(true);
         }
     }
+    m_grid_layout->setSpacing(0);
     setLayout(m_grid_layout);
 }
 

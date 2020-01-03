@@ -1,4 +1,5 @@
 #include "mainwindow.h"
+#include "definitions.h"
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -16,9 +17,9 @@ MainWindow::MainWindow(QWidget *parent)
     QLabel *size_label = new QLabel("size", this);
     QSpinBox *size_spinbox = new QSpinBox(this);
 
-    size_spinbox->setValue(9);
-    size_spinbox->setMinimum(1);
-    size_spinbox->setMaximum(50);
+    size_spinbox->setValue(LIFE_GRID_INITIAL_SIZE);
+    size_spinbox->setMinimum(LIFE_GRID_MIN_SIZE);
+    size_spinbox->setMaximum(LIFE_GRID_MAX_SIZE);
     m_button_layout->addWidget(size_label);
     m_button_layout->addWidget(size_spinbox);
     m_button_layout->addStretch();
@@ -27,8 +28,6 @@ MainWindow::MainWindow(QWidget *parent)
 
     populateLifeButtons();
     setCentralWidget(m_central);
-
-
     m_central->setLayout(m_top_layout);
     setSizePolicy(QSizePolicy(QSizePolicy::Minimum,QSizePolicy::Minimum));
     connect(size_spinbox, SIGNAL(valueChanged(int)), this, SLOT(sizeChanged(int)));
