@@ -10,6 +10,7 @@
 #include <QLabel>
 
 #include "lifegrid.h"
+#include "lifebutton.h"
 
 class MainWindow : public QMainWindow
 {

@@ -1,5 +1,4 @@
 #include "lifegrid.h"
-#include "mainwindow.h"
 #include "definitions.h"
 
 LifeGrid::LifeGrid(QWidget *parent) : QWidget(parent)
@@ -12,8 +11,8 @@ LifeGrid::LifeGrid(QWidget *parent) : QWidget(parent)
 
 void LifeGrid::populateLifeButtons()
 {
-    const QVector<QToolButton *> initVector(m_size, nullptr);
-    m_buttons = QVector<QVector<QToolButton *> >(m_size, initVector);
+    const QVector<LifeButton *> initVector(m_size, nullptr);
+    m_buttons = QVector<QVector<LifeButton *> >(m_size, initVector);
 
     //remove all widgets from grid before adding new ones
     if(m_grid_layout){
@@ -25,12 +24,11 @@ void LifeGrid::populateLifeButtons()
     m_grid_layout = new QGridLayout(this);
     for (int i = 0; i < m_size; i++) {
         for (int j = 0; j < m_size; j++) {
-            QToolButton *button = new QToolButton(this);
+            LifeButton *button = new LifeButton(this);
             button->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);
-            m_grid_layout->addWidget(button, i, j );
+            button->setEnabled(true);
             m_buttons[i][j] = button;
-            m_buttons[i][j]->setText("a");
-            m_buttons[i][j]->setEnabled(true);
+            m_grid_layout->addWidget(button, i, j );
         }
     }
     m_grid_layout->setSpacing(0);

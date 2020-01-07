@@ -3,7 +3,7 @@
 
 #include <QWidget>
 #include <QGridLayout>
-#include <QToolButton>
+#include "lifebutton.h"
 
 
 class LifeGrid : public QWidget
@@ -15,7 +15,7 @@ public:
     explicit LifeGrid(QWidget *parent = nullptr);
 private:
     int m_size;
-    QVector<QVector<QToolButton *> > m_buttons;
+    QVector<QVector<LifeButton*> > m_buttons;
     void populateLifeButtons();
     QGridLayout *m_grid_layout;
 signals:

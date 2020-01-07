@@ -12,7 +12,7 @@ MainWindow::MainWindow(QWidget *parent)
     m_top_layout->addWidget(m_grid_widget);
 
     //Lower row control buttons setup
-    QPushButton *tick_button = new QPushButton("Tick",this);
+    QPushButton *tick_button = new QPushButton("Next State",this);
     QPushButton *start_stop_button = new QPushButton("Start");
     QLabel *size_label = new QLabel("size", this);
     QSpinBox *size_spinbox = new QSpinBox(this);
