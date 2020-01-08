@@ -9,6 +9,7 @@
 #include <QSpinBox>
 #include <QLabel>
 #include <QTimer>
+#include <QSlider>
 
 #include "lifegrid.h"
 #include "lifebutton.h"
@@ -19,6 +20,7 @@ class MainWindow : public QMainWindow
     Q_OBJECT
 public slots:
     void sizeChanged(int size);
+    void speedChanged(int refresh_rate);
 private:
     QWidget* m_central;
     void populateLifeButtons();
