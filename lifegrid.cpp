@@ -66,3 +66,7 @@ void LifeGrid::life_changed(){
 void LifeGrid::randomize(){
     m_life->randomize();
 }
+
+void LifeGrid::tick(){
+    m_life->tick();
+}

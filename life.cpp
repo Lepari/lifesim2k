@@ -7,10 +7,6 @@ Life::Life(int size)
     m_life = QVector<QVector<bool>> (m_size, rowVector);
 }
 
-void Life::tick(){
-
-}
-
 void Life::setAlive(int x, int y){
     if (x<m_size && y < m_size && x >= 0 && y >= 0){
         //within table sizes
@@ -47,4 +43,50 @@ bool Life::getStatus(int x, int y){
     while(y < 0)
         y = y+m_size;
     return m_life[x][y];
+}
+
+void Life::tick(){
+    QVector<bool> rowVector(m_size, false);
+    QVector<QVector<bool>> next_life = QVector<QVector<bool>> (m_size, rowVector);
+    for (int i = 0; i < m_size; i++) {
+        for (int j = 0; j < m_size; j++) {
+            //count alive neighbours
+            int alive_neighbours = 0;
+            if(this->getStatus(i-1,j-1))
+                alive_neighbours++;
+            if(this->getStatus(i-1,j))
+                alive_neighbours++;
+            if(this->getStatus(i-1,j+1))
+                alive_neighbours++;
+            if(this->getStatus(i+1,j-1))
+                alive_neighbours++;
+            if(this->getStatus(i+1,j))
+                alive_neighbours++;
+            if(this->getStatus(i+1,j+1))
+                alive_neighbours++;
+            if(this->getStatus(i,j+1))
+                alive_neighbours++;
+            if(this->getStatus(i,j-1))
+                alive_neighbours++;
+            //branch acording to current life status
+            if(this->getStatus(i,j)){
+                //if cell i j is alive
+                if(alive_neighbours <= 1 || alive_neighbours >= 4){
+                    next_life[i][j] = false;
+                }
+                else{
+                    next_life[i][j] = true;
+                }
+            }else{
+                //if the cell is dead
+                if(alive_neighbours==3){
+                    next_life[i][j] = true;
+                }else{
+                    next_life[i][j] = false;
+                }
+            }
+        }
+    }
+    m_life = next_life;
+    emit life_changed();
 }

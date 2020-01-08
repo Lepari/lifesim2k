@@ -15,6 +15,7 @@ public slots:
     void buttonChanged(bool alive, int x, int y);
     void life_changed();
     void randomize();
+    void tick();
 public:
     explicit LifeGrid(QWidget *parent = nullptr);
 private:

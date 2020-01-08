@@ -33,6 +33,7 @@ MainWindow::MainWindow(QWidget *parent)
     setSizePolicy(QSizePolicy(QSizePolicy::Minimum,QSizePolicy::Minimum));
     connect(size_spinbox, SIGNAL(valueChanged(int)), this, SLOT(sizeChanged(int)));
     connect(random_button, SIGNAL(pressed()), m_grid_widget, SLOT(randomize()));
+    connect(tick_button, SIGNAL(pressed()), m_grid_widget, SLOT(tick()));
 }
 
 MainWindow::~MainWindow()
