@@ -25,6 +25,15 @@ void Life::setDead(int x, int y){
     }
 }
 
+void Life::randomize(){
+    for (int i = 0; i < m_size; i++) {
+        for (int j = 0; j < m_size; j++) {
+            m_life[i][j] = rand()%2;
+        }
+    }
+    emit life_changed();
+}
+
 bool Life::getStatus(int x, int y){
     //border cases: if x or y points outside of array
     //slide them towards array in steps of m_size

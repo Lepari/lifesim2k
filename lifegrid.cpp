@@ -62,3 +62,7 @@ void LifeGrid::life_changed(){
         }
     }
 }
+
+void LifeGrid::randomize(){
+    m_life->randomize();
+}

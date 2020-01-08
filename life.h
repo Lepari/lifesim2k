@@ -13,6 +13,7 @@ public:
     int getsize(){return m_size;};
     void setAlive(int x , int y);
     void setDead(int x, int y);
+    void randomize();
 public slots:
     void tick();
 private:

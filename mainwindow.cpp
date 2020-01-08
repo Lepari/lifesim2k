@@ -12,6 +12,7 @@ MainWindow::MainWindow(QWidget *parent)
     m_top_layout->addWidget(m_grid_widget);
 
     //Lower row control buttons setup
+    QPushButton *random_button = new QPushButton("Randomize");
     QPushButton *tick_button = new QPushButton("Next State",this);
     QPushButton *start_stop_button = new QPushButton("Start");
     QLabel *size_label = new QLabel("size", this);
@@ -23,6 +24,7 @@ MainWindow::MainWindow(QWidget *parent)
     m_button_layout->addWidget(size_label);
     m_button_layout->addWidget(size_spinbox);
     m_button_layout->addStretch();
+    m_button_layout->addWidget(random_button);
     m_button_layout->addWidget(tick_button);
     m_button_layout->addWidget(start_stop_button);
     populateLifeButtons();
@@ -30,6 +32,7 @@ MainWindow::MainWindow(QWidget *parent)
     m_central->setLayout(m_top_layout);
     setSizePolicy(QSizePolicy(QSizePolicy::Minimum,QSizePolicy::Minimum));
     connect(size_spinbox, SIGNAL(valueChanged(int)), this, SLOT(sizeChanged(int)));
+    connect(random_button, SIGNAL(pressed()), m_grid_widget, SLOT(randomize()));
 }
 
 MainWindow::~MainWindow()
