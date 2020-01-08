@@ -25,7 +25,6 @@ MainWindow::MainWindow(QWidget *parent)
     m_button_layout->addStretch();
     m_button_layout->addWidget(tick_button);
     m_button_layout->addWidget(start_stop_button);
-
     populateLifeButtons();
     setCentralWidget(m_central);
     m_central->setLayout(m_top_layout);

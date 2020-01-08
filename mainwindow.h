@@ -11,6 +11,7 @@
 
 #include "lifegrid.h"
 #include "lifebutton.h"
+#include "life.h"
 
 class MainWindow : public QMainWindow
 {

@@ -18,6 +18,8 @@ public slots:
 private:
    QVector<QVector<bool>> m_life;
    int m_size;
+signals:
+   void life_changed();
 };
 
 #endif // LIFE_H

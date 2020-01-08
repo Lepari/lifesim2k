@@ -5,8 +5,10 @@ LifeGrid::LifeGrid(QWidget *parent) : QWidget(parent)
 {
     m_size = LIFE_GRID_INITIAL_SIZE;
     m_grid_layout = nullptr;
+    m_life = new Life(LIFE_GRID_INITIAL_SIZE);
     populateLifeButtons();
     setSizePolicy(QSizePolicy(QSizePolicy::Minimum,QSizePolicy::Minimum));
+    connect(m_life, SIGNAL(life_changed()), this, SLOT(life_changed()));
 }
 
 void LifeGrid::populateLifeButtons()
@@ -24,7 +26,8 @@ void LifeGrid::populateLifeButtons()
     m_grid_layout = new QGridLayout(this);
     for (int i = 0; i < m_size; i++) {
         for (int j = 0; j < m_size; j++) {
-            LifeButton *button = new LifeButton(this);
+            LifeButton *button = new LifeButton(i, j, this);
+            connect(button, SIGNAL(alive_changed(bool,int,int)), this, SLOT(buttonChanged(bool,int,int)));
             button->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);
             button->setEnabled(true);
             m_buttons[i][j] = button;
@@ -38,4 +41,24 @@ void LifeGrid::populateLifeButtons()
 void LifeGrid::sizeChanged(int value){
     m_size = value;
     populateLifeButtons();
+}
+
+void LifeGrid::buttonChanged(bool alive, int x, int y){
+    if(alive){
+        m_life->setAlive(x,y);
+    }else{
+        m_life->setDead(x,y);
+    }
+}
+
+void LifeGrid::life_changed(){
+    for (int i = 0; i < m_size; i++) {
+        for (int j = 0; j < m_size; j++) {
+            bool lifestatus_at = m_life->getStatus(i,j);
+            LifeButton* button = m_buttons[i][j];
+            if(lifestatus_at != button->isChecked()){
+                button->setChecked(lifestatus_at);
+            }
+        }
+    }
 }

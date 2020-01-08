@@ -1,7 +1,9 @@
 #include "lifebutton.h"
 
-LifeButton::LifeButton(QWidget *parent) : QToolButton(parent)
+LifeButton::LifeButton(int x, int y, QWidget *parent) : QToolButton(parent)
 {
+    m_x = x;
+    m_y = y;
     connect(this, SIGNAL(toggled(bool)), this, SLOT(setAlive(bool)));
     this->setCheckable(true);
     this->setAlive(false);
@@ -22,6 +24,6 @@ void LifeButton::setAlive(bool status)
         this->setIcon(pix);
     }
     if (changed){
-        emit alive_changed(m_alive);
+        emit alive_changed(m_alive, m_x, m_y);
     }
 }
