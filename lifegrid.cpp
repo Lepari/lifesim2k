@@ -41,6 +41,9 @@ void LifeGrid::populateLifeButtons()
 void LifeGrid::sizeChanged(int value){
     m_size = value;
     populateLifeButtons();
+    delete m_life;
+    m_life = new Life(m_size);
+    connect(m_life, SIGNAL(life_changed()), this, SLOT(life_changed()));
 }
 
 void LifeGrid::buttonChanged(bool alive, int x, int y){
