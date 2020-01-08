@@ -21,14 +21,17 @@ class MainWindow : public QMainWindow
 public slots:
     void sizeChanged(int size);
     void speedChanged(int refresh_rate);
+    void start();
+    void stop();
 private:
     QWidget* m_central;
-    void populateLifeButtons();
     QVBoxLayout *m_top_layout;
     QHBoxLayout *m_button_layout;
     LifeGrid *m_grid_widget;
     QSpacerItem *m_button_pacer;
     QTimer *m_tick_timer;
+    QPushButton *m_start_button = nullptr;
+    QPushButton *m_stop_button = nullptr;
 
 public:
     MainWindow(QWidget *parent = nullptr);

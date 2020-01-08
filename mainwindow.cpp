@@ -22,8 +22,9 @@ MainWindow::MainWindow(QWidget *parent)
     speed_slider->setTickInterval(1);
     QPushButton *random_button = new QPushButton("Randomize");
     QPushButton *tick_button = new QPushButton("Next State",this);
-    QPushButton *start_button = new QPushButton("Start");
-    QPushButton *stop_button = new QPushButton("Stop");
+    m_start_button = new QPushButton("Start");
+    m_stop_button = new QPushButton("Stop");
+    m_stop_button->setEnabled(false);
     QLabel *size_label = new QLabel("size", this);
     QLabel *speed_label = new QLabel("speed(Hz)", this);
     QSpinBox *size_spinbox = new QSpinBox(this);
@@ -38,19 +39,19 @@ MainWindow::MainWindow(QWidget *parent)
     m_button_layout->addWidget(speed_slider);
     m_button_layout->addWidget(random_button);
     m_button_layout->addWidget(tick_button);
-    m_button_layout->addWidget(start_button);
-    m_button_layout->addWidget(stop_button);
-    populateLifeButtons();
+    m_button_layout->addWidget(m_start_button);
+    m_button_layout->addWidget(m_stop_button);
     setCentralWidget(m_central);
     m_central->setLayout(m_top_layout);
     setSizePolicy(QSizePolicy(QSizePolicy::Minimum,QSizePolicy::Minimum));
-    connect(start_button, SIGNAL(pressed()), m_tick_timer, SLOT(start()));
-    connect(stop_button, SIGNAL(pressed()), m_tick_timer, SLOT(stop()));
+    connect(m_start_button, SIGNAL(pressed()), this, SLOT(start()));
+    connect(m_stop_button, SIGNAL(pressed()), this, SLOT(stop()));
     connect(m_tick_timer, SIGNAL(timeout()), m_grid_widget, SLOT(tick()));
     connect(size_spinbox, SIGNAL(valueChanged(int)), this, SLOT(sizeChanged(int)));
     connect(random_button, SIGNAL(pressed()), m_grid_widget, SLOT(randomize()));
     connect(tick_button, SIGNAL(pressed()), m_grid_widget, SLOT(tick()));
     connect(speed_slider, SIGNAL(sliderMoved(int)), this, SLOT(speedChanged(int)));
+    connect(size_spinbox, SIGNAL(valueChanged(int)), this, SLOT(stop()));
 }
 
 MainWindow::~MainWindow()
@@ -67,9 +68,14 @@ void MainWindow::speedChanged(int refresh_rate){
     m_tick_timer->setInterval(mills);
 }
 
-void MainWindow::populateLifeButtons()
-{
-
-
+void MainWindow::stop(){
+    m_tick_timer->stop();
+    m_stop_button->setEnabled(false);
+    m_start_button->setEnabled(true);
 }
 
+void MainWindow::start(){
+    m_tick_timer->start();
+    m_start_button->setEnabled(false);
+    m_stop_button->setEnabled(true);
+}
