@@ -15,7 +15,7 @@ private:
     bool m_alive;
 
 signals:
-
+    void alive_changed(bool alive);
 };
 
 #endif // LIFEBUTTON_H
