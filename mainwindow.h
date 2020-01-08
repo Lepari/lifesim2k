@@ -8,6 +8,7 @@
 #include <QPushButton>
 #include <QSpinBox>
 #include <QLabel>
+#include <QTimer>
 
 #include "lifegrid.h"
 #include "lifebutton.h"
@@ -25,6 +26,8 @@ private:
     QHBoxLayout *m_button_layout;
     LifeGrid *m_grid_widget;
     QSpacerItem *m_button_pacer;
+    QTimer *m_tick_timer;
+
 public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
