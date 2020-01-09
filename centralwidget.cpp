@@ -20,8 +20,8 @@ CentralWidget::CentralWidget(QWidget *parent) : QWidget(parent)
     m_start_button = new QPushButton("Start");
     m_stop_button = new QPushButton("Stop");
     m_stop_button->setEnabled(false);
-    QLabel *size_label = new QLabel("size", this);
-    QLabel *speed_label = new QLabel("speed(Hz)", this);
+    QLabel *size_label = new QLabel("Size", this);
+    QLabel *speed_label = new QLabel("Speed(Hz)", this);
     QSpinBox *size_spinbox = new QSpinBox(this);
     size_spinbox->setValue(LIFE_GRID_INITIAL_SIZE);
     size_spinbox->setMinimum(LIFE_GRID_MIN_SIZE);

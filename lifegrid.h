@@ -3,6 +3,8 @@
 
 #include <QWidget>
 #include <QGridLayout>
+#include <QHBoxLayout>
+#include <QVBoxLayout>
 #include "lifebutton.h"
 #include "life.h"
 
@@ -23,7 +25,9 @@ private:
     int m_size;
     QVector<QVector<LifeButton*> > m_buttons;
     void populateLifeButtons();
-    QGridLayout *m_grid_layout;
+    QGridLayout *m_grid_layout = nullptr;
+    QHBoxLayout *m_top_layout= nullptr;
+    QVBoxLayout *m_middle_layout= nullptr;
     Life * m_life;
 signals:
 

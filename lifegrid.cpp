@@ -21,9 +21,22 @@ void LifeGrid::populateLifeButtons()
         while(m_grid_layout->count() > 0){
             delete m_grid_layout->itemAt(0)->widget();
         }
-        delete m_grid_layout;
     }
-    m_grid_layout = new QGridLayout(this);
+
+    if(m_top_layout) delete m_top_layout;
+
+    m_top_layout = new QHBoxLayout;
+    m_middle_layout = new QVBoxLayout;
+    m_grid_layout = new QGridLayout;
+    m_grid_layout->setSpacing(0);
+    m_top_layout->addStretch();
+    m_top_layout->addItem(m_middle_layout);
+    m_top_layout->addStretch();
+    m_middle_layout->addStretch();
+    m_middle_layout->addItem(m_grid_layout);
+    m_middle_layout->addStretch();
+
+
     for (int i = 0; i < m_size; i++) {
         for (int j = 0; j < m_size; j++) {
             LifeButton *button = new LifeButton(i, j, this);
@@ -34,8 +47,7 @@ void LifeGrid::populateLifeButtons()
             m_grid_layout->addWidget(button, i, j );
         }
     }
-    m_grid_layout->setSpacing(0);
-    setLayout(m_grid_layout);
+    setLayout(m_top_layout);
 }
 
 void LifeGrid::changeLifeSize(int value){
@@ -44,6 +56,7 @@ void LifeGrid::changeLifeSize(int value){
     delete m_life;
     m_life = new Life(m_size);
     connect(m_life, SIGNAL(life_changed()), this, SLOT(life_changed()));
+    adjustSize();
 }
 
 void LifeGrid::buttonChanged(bool alive, int x, int y){
