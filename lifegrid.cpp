@@ -38,7 +38,7 @@ void LifeGrid::populateLifeButtons()
     setLayout(m_grid_layout);
 }
 
-void LifeGrid::sizeChanged(int value){
+void LifeGrid::changeLifeSize(int value){
     m_size = value;
     populateLifeButtons();
     delete m_life;

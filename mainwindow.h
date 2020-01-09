@@ -23,6 +23,8 @@ public slots:
     void speedChanged(int refresh_rate);
     void start();
     void stop();
+    void clear();
+    void resizeLife(int size);
 private:
     QWidget* m_central;
     QVBoxLayout *m_top_layout;

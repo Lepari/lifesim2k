@@ -11,12 +11,13 @@ class LifeGrid : public QWidget
 {
     Q_OBJECT
 public slots:
-    void sizeChanged(int value);
+    void changeLifeSize(int value);
     void buttonChanged(bool alive, int x, int y);
     void life_changed();
     void randomize();
     void tick();
 public:
+    int getSize(){return m_size;};
     explicit LifeGrid(QWidget *parent = nullptr);
 private:
     int m_size;

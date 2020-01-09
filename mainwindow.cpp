@@ -20,8 +20,10 @@ MainWindow::MainWindow(QWidget *parent)
     speed_slider->setValue(3);
     speed_slider->setTickPosition(QSlider::TicksBelow);
     speed_slider->setTickInterval(1);
+    speed_slider->setMinimumSize(QSize(100,10));
     QPushButton *random_button = new QPushButton("Randomize");
     QPushButton *tick_button = new QPushButton("Next State",this);
+    QPushButton *clear_button = new QPushButton("Clear",this);
     m_start_button = new QPushButton("Start");
     m_stop_button = new QPushButton("Stop");
     m_stop_button->setEnabled(false);
@@ -35,10 +37,13 @@ MainWindow::MainWindow(QWidget *parent)
     m_button_layout->addWidget(size_label);
     m_button_layout->addWidget(size_spinbox);
     m_button_layout->addStretch();
+    m_button_layout->addWidget(random_button);
+    m_button_layout->addWidget(clear_button);
+    m_button_layout->addWidget(tick_button);
+    m_button_layout->addSpacing(5);
     m_button_layout->addWidget(speed_label);
     m_button_layout->addWidget(speed_slider);
-    m_button_layout->addWidget(random_button);
-    m_button_layout->addWidget(tick_button);
+    m_button_layout->addSpacing(5);
     m_button_layout->addWidget(m_start_button);
     m_button_layout->addWidget(m_stop_button);
     setCentralWidget(m_central);
@@ -52,6 +57,7 @@ MainWindow::MainWindow(QWidget *parent)
     connect(tick_button, SIGNAL(pressed()), m_grid_widget, SLOT(tick()));
     connect(speed_slider, SIGNAL(sliderMoved(int)), this, SLOT(speedChanged(int)));
     connect(size_spinbox, SIGNAL(valueChanged(int)), this, SLOT(stop()));
+    connect(clear_button, SIGNAL(pressed()), this, SLOT(clear()));
 }
 
 MainWindow::~MainWindow()
@@ -59,7 +65,7 @@ MainWindow::~MainWindow()
 }
 
 void MainWindow::sizeChanged(int size){
-    m_grid_widget->sizeChanged(size);
+    m_grid_widget->changeLifeSize(size);
     adjustSize();
 }
 
@@ -78,4 +84,12 @@ void MainWindow::start(){
     m_tick_timer->start();
     m_start_button->setEnabled(false);
     m_stop_button->setEnabled(true);
+}
+
+void MainWindow::resizeLife(int size){
+    m_grid_widget->changeLifeSize(size);
+}
+
+void MainWindow::clear(){
+    m_grid_widget->changeLifeSize(m_grid_widget->getSize());
 }
