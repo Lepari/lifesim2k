@@ -19,15 +19,17 @@ SOURCES += \
     life.cpp \
     lifebutton.cpp \
     main.cpp \
-    mainwindow.cpp \
-    lifegrid.cpp
+    lifegrid.cpp \
+    centralwidget.cpp \
+    mainwindow.cpp
 
 HEADERS += \
     definitions.h \
     life.h \
     lifebutton.h \
-    mainwindow.h \
-    lifegrid.h
+    lifegrid.h \
+    centralwidget.h \
+    mainwindow.h
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
