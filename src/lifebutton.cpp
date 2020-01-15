@@ -1,5 +1,11 @@
-#include "lifebutton.h"
+#include "headers/lifebutton.h"
+/*!
+    \class LifeButton
+    \inherits QToolButton
+    \brief LifeButton is a derivate of QToolbutton a dedicated widget for representing single cell in the game of life
 
+
+*/
 LifeButton::LifeButton(int x, int y, QWidget *parent) : QToolButton(parent)
 {
     m_x = x;

@@ -1,0 +1,9 @@
+# include(compat.qdocconf)
+outputdir   = html
+headerdirs  = ../headers
+sourcedirs  = .. \
+              ../src
+exampledirs = .
+imagedirs   = ./images
+headers.fileextensions  = "*.h *.hpp"
+sources.fileextensions  = "*.cpp *.qml *.qdoc"

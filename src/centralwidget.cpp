@@ -1,4 +1,4 @@
-#include "centralwidget.h"
+#include "headers/centralwidget.h"
 #include "definitions.h"
 
 CentralWidget::CentralWidget(QWidget *parent) : QWidget(parent)

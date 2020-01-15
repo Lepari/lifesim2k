@@ -1,5 +1,11 @@
-#include "life.h"
+#include "headers/life.h"
 
+
+/*!
+    \class Life
+    \brief The Life class represents state of the life and contains methods for modifying it
+
+*/
 Life::Life(int size)
 {
     m_size = size;
@@ -30,6 +36,11 @@ void Life::randomize(){
     emit life_changed();
 }
 
+/*!
+Retuns alive status of cell in coordinates x,y.
+If x or y point outside of table they are shifted towards table in steps of life size.
+This makes life grid behave in cyclic manner at the borders
+*/
 bool Life::getStatus(int x, int y){
     //border cases: if x or y points outside of array
     //slide them towards array in steps of m_size

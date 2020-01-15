@@ -16,22 +16,25 @@ DEFINES += QT_DEPRECATED_WARNINGS
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
-    life.cpp \
-    lifebutton.cpp \
-    main.cpp \
-    lifegrid.cpp \
-    centralwidget.cpp \
-    mainwindow.cpp
+    src/life.cpp \
+    src/lifebutton.cpp \
+    src/main.cpp \
+    src/lifegrid.cpp \
+    src/centralwidget.cpp \
+    src/mainwindow.cpp
 
 HEADERS += \
     definitions.h \
-    life.h \
-    lifebutton.h \
-    lifegrid.h \
-    centralwidget.h \
-    mainwindow.h
+    headers/life.h \
+    headers/lifebutton.h \
+    headers/lifegrid.h \
+    headers/centralwidget.h \
+    headers/mainwindow.h
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
+
+DISTFILES += \
+    doc/config.qdocconf

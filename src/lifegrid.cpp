@@ -1,4 +1,4 @@
-#include "lifegrid.h"
+#include "headers/lifegrid.h"
 #include "definitions.h"
 
 LifeGrid::LifeGrid(QWidget *parent) : QWidget(parent)
