@@ -10,7 +10,7 @@ class Life: public QObject
 public:
     Life(int size);
     bool getStatus(int x, int y);
-    int getsize(){return m_size;};
+    int getsize();
     void setAlive(int x , int y);
     void setDead(int x, int y);
     void randomize();

@@ -5,7 +5,15 @@
     \class Life
     \brief The Life class represents state of the life and contains methods for modifying it
 
+
+    Only NxN size lifes are supported without resizing.
+    Borders of grid are treated periodic boundary conditions.
+    emits signal life_changed() when state of the life is changed using tick() or randomize().
 */
+
+/*!
+ Constructs a Life with square \a size given
+ */
 Life::Life(int size)
 {
     m_size = size;
@@ -13,6 +21,16 @@ Life::Life(int size)
     m_life = QVector<QVector<bool>> (m_size, rowVector);
 }
 
+/*!
+ Returns the \c size of life grid as integer
+*/
+int Life::getsize(){
+    return m_size;
+}
+
+/*!
+Sets cell with coordinates \a x, \a y to be alive
+*/
 void Life::setAlive(int x, int y){
     if (x<m_size && y < m_size && x >= 0 && y >= 0){
         //within table sizes
@@ -20,6 +38,9 @@ void Life::setAlive(int x, int y){
     }
 }
 
+/*!
+Sets cell with coordinates \a x, \a y to be dead
+*/
 void Life::setDead(int x, int y){
     if (x<m_size && y < m_size && x >= 0 && y >= 0){
         //within table sizes
@@ -27,6 +48,9 @@ void Life::setDead(int x, int y){
     }
 }
 
+/*!
+Randomly sets all cells in life to be either alive or dead with 50/50 % propability
+*/
 void Life::randomize(){
     for (int i = 0; i < m_size; i++) {
         for (int j = 0; j < m_size; j++) {
@@ -37,7 +61,7 @@ void Life::randomize(){
 }
 
 /*!
-Retuns alive status of cell in coordinates x,y.
+Returns \c true if cell in coordinates \a x, \a y is alive
 If x or y point outside of table they are shifted towards table in steps of life size.
 This makes life grid behave in cyclic manner at the borders
 */
@@ -56,7 +80,11 @@ bool Life::getStatus(int x, int y){
     return m_life[x][y];
 }
 
+/*!
+Makes the life state progress one step foward
+*/
 void Life::tick(){
+    //Create empty life state
     QVector<bool> rowVector(m_size, false);
     QVector<QVector<bool>> next_life = QVector<QVector<bool>> (m_size, rowVector);
     for (int i = 0; i < m_size; i++) {
