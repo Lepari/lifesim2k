@@ -2,10 +2,15 @@
 /*!
     \class LifeButton
     \inherits QToolButton
-    \brief LifeButton is a derivate of QToolbutton a dedicated widget for representing single cell in the game of life
+    \brief LifeButton is a dedicated widget for representing single cell in the game of life
 
-
+    emits alive_changed(bool alive, x, y) when button changes state.
 */
+
+/*!
+ * \brief Constructs a LifeButton wit \a x and \a y specifies the coordinates of which this button represents
+ * \a parent points widget
+ */
 LifeButton::LifeButton(int x, int y, QWidget *parent) : QToolButton(parent)
 {
     m_x = x;
@@ -15,6 +20,10 @@ LifeButton::LifeButton(int x, int y, QWidget *parent) : QToolButton(parent)
     this->setAlive(false);
 }
 
+
+/*!
+ * \brief sets LifeButton alive status to \a status. emits alice_changed() if state changes
+ */
 void LifeButton::setAlive(bool status)
 {
     bool changed = status != m_alive;

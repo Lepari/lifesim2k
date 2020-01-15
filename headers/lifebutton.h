@@ -17,6 +17,11 @@ private:
     int m_y;
 
 signals:
+    /*!
+     * \brief alive_changed
+     * \a alive is the state of button after chence
+     * \a x and  \a y are the coordinates of this button
+     */
     void alive_changed(bool alive, int x ,int y);
 };
 
