@@ -1,6 +1,19 @@
 #include "headers/centralwidget.h"
 #include "definitions.h"
 
+
+/*!
+    \class CentralWidget
+    \brief Central Widget of lifesim2k project main window.
+
+
+    Contains all widgets and top level functionality of this software.
+*/
+
+
+/*!
+ * \brief Constructs CentralWidget with parent widget \a parent
+ */
 CentralWidget::CentralWidget(QWidget *parent) : QWidget(parent)
 {
     m_grid_widget = new LifeGrid(this);
@@ -62,33 +75,52 @@ CentralWidget::CentralWidget(QWidget *parent) : QWidget(parent)
 
 }
 
-
+/*!
+ * \brief Slot which resizes the life size and updates widget to
+ *  \a size
+ */
 void CentralWidget::sizeChanged(int size){
     m_grid_widget->changeLifeSize(size);
     adjustSize();
 }
 
+/*!
+ * \brief Changes the refresh speed of game of life as
+ * \a refresh_rate in herz
+ */
 void CentralWidget::speedChanged(int refresh_rate){
     int mills = 1000/refresh_rate;
     m_tick_timer->setInterval(mills);
 }
 
+/*!
+ * \brief Stops the game of life from progressing
+ */
 void CentralWidget::stop(){
     m_tick_timer->stop();
     m_stop_button->setEnabled(false);
     m_start_button->setEnabled(true);
 }
-
+/*!
+ * \brief Starts the game of life from progressing at speed set by speedChanged
+ */
 void CentralWidget::start(){
     m_tick_timer->start();
     m_start_button->setEnabled(false);
     m_stop_button->setEnabled(true);
 }
 
+/*!
+ * Resizes the life to
+ * \a size
+ */
 void CentralWidget::resizeLife(int size){
     m_grid_widget->changeLifeSize(size);
 }
 
+/*!
+ * \brief Sets all life cells to "dead" state
+ */
 void CentralWidget::clear(){
     m_grid_widget->changeLifeSize(m_grid_widget->getSize());
 }
