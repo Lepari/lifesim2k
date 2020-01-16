@@ -19,7 +19,7 @@ public slots:
     void randomize();
     void tick();
 public:
-    int getSize(){return m_size;};
+    int getSize();
     explicit LifeGrid(QWidget *parent = nullptr);
 private:
     int m_size;

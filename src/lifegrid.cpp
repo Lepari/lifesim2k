@@ -1,6 +1,15 @@
 #include "headers/lifegrid.h"
 #include "definitions.h"
+/*!
+    \class LifeGrid
+    \inherits QWidget
+    \brief LifeGrid a collection of libebuttons that represents a state of life and provides means to modify it
+*/
 
+
+/*!
+ Constructs a LifeGrid widget with \a parent
+ */
 LifeGrid::LifeGrid(QWidget *parent) : QWidget(parent)
 {
     m_size = LIFE_GRID_INITIAL_SIZE;
@@ -11,6 +20,9 @@ LifeGrid::LifeGrid(QWidget *parent) : QWidget(parent)
     connect(m_life, SIGNAL(life_changed()), this, SLOT(life_changed()));
 }
 
+/*!
+ Creates layout for the widget and populates it with instances of LifeButton
+ */
 void LifeGrid::populateLifeButtons()
 {
     const QVector<LifeButton *> initVector(m_size, nullptr);
@@ -22,9 +34,9 @@ void LifeGrid::populateLifeButtons()
             delete m_grid_layout->itemAt(0)->widget();
         }
     }
-
     if(m_top_layout) delete m_top_layout;
 
+    //Create layout
     m_top_layout = new QHBoxLayout;
     m_middle_layout = new QVBoxLayout;
     m_grid_layout = new QGridLayout;
@@ -36,7 +48,7 @@ void LifeGrid::populateLifeButtons()
     m_middle_layout->addItem(m_grid_layout);
     m_middle_layout->addStretch();
 
-
+    //Create buttons and populate layout
     for (int i = 0; i < m_size; i++) {
         for (int j = 0; j < m_size; j++) {
             LifeButton *button = new LifeButton(i, j, this);
@@ -50,6 +62,9 @@ void LifeGrid::populateLifeButtons()
     setLayout(m_top_layout);
 }
 
+/*!
+ Resizes Grid to size of \a value
+ */
 void LifeGrid::changeLifeSize(int value){
     m_size = value;
     populateLifeButtons();
@@ -59,6 +74,11 @@ void LifeGrid::changeLifeSize(int value){
     adjustSize();
 }
 
+/*!
+Slot fot LifeButtons to connect
+\a alive is the new state of button
+\a x and \a y define button coordinates
+ */
 void LifeGrid::buttonChanged(bool alive, int x, int y){
     if(alive){
         m_life->setAlive(x,y);
@@ -67,6 +87,9 @@ void LifeGrid::buttonChanged(bool alive, int x, int y){
     }
 }
 
+/*!
+ Updates ui LifeButtons to correspond Life status
+ */
 void LifeGrid::life_changed(){
     for (int i = 0; i < m_size; i++) {
         for (int j = 0; j < m_size; j++) {
@@ -79,10 +102,26 @@ void LifeGrid::life_changed(){
     }
 }
 
+/*!
+ Randomizes life grid status
+ */
 void LifeGrid::randomize(){
     m_life->randomize();
 }
 
+/*!
+  Advances the life by one step.
+*/
 void LifeGrid::tick(){
     m_life->tick();
+}
+
+
+/*!
+ * \brief LifeGrid::getSize
+ * Returns \c size of Life
+ */
+int LifeGrid::getSize()
+{
+    return m_size;
 }
