@@ -4,6 +4,7 @@
     \class LifeGrid
     \inherits QWidget
     \brief LifeGrid a collection of libebuttons that represents a state of life and provides means to modify it
+    \inmodule lifesim2k
 */
 
 

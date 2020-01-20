@@ -4,7 +4,7 @@
 /*!
     \class Life
     \brief The Life class represents state of the life and contains methods for modifying it
-
+    \inmodule lifesim2k
 
     Only NxN size lifes are supported without resizing.
     Borders of grid are treated periodic boundary conditions.

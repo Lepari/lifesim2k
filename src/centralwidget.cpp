@@ -5,6 +5,7 @@
 /*!
     \class CentralWidget
     \brief Central Widget of lifesim2k project main window.
+    \inmodule lifesim2k
 
 
     Contains all widgets and top level functionality of this software.

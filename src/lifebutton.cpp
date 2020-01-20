@@ -3,6 +3,7 @@
     \class LifeButton
     \inherits QToolButton
     \brief LifeButton is a dedicated widget for representing single cell in the game of life
+    \inmodule lifesim2k
 
     emits alive_changed(bool alive, x, y) when button changes state.
 */
