@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- lifegrid.cpp -->
+  <title>LifeGrid Class | Qt </title>
+</head>
+<body>
+<li>LifeGrid</li>
+<div class="sidebar">
+<div class="toc">
+<h3><a name="toc">Contents</a></h3>
+<ul>
+<li class="level1"><a href="#public-functions">Public Functions</a></li>
+<li class="level1"><a href="#public-slots">Public Slots</a></li>
+<li class="level1"><a href="#details">Detailed Description</a></li>
+</ul>
+</div>
+<div class="sidebar-content" id="sidebar-content"></div></div>
+<h1 class="title">LifeGrid Class</h1>
+<!-- $$$LifeGrid-brief -->
+<p><a href="lifegrid.html">LifeGrid</a> a collection of libebuttons that represents a state of life and provides means to modify it <a href="#details">More...</a></p>
+<!-- @@@LifeGrid -->
+<div class="table"><table class="alignedsummary">
+<tr><td class="memItemLeft rightAlign topAlign"> Header:</td><td class="memItemRight bottomAlign"> <span class="preprocessor">#include &lt;LifeGrid&gt;</span>
+</td></tr></table></div><ul>
+<li><a href="lifegrid-members.html">List of all members, including inherited members</a></li>
+</ul>
+<a name="public-functions"></a>
+<h2 id="public-functions">Public Functions</h2>
+<div class="table"><table class="alignedsummary">
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="lifegrid.html#LifeGrid">LifeGrid</a></b>(QWidget *<i>parent</i> = nullptr)</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> int </td><td class="memItemRight bottomAlign"><b><a href="lifegrid.html#getSize">getSize</a></b>()</td></tr>
+</table></div>
+<a name="public-slots"></a>
+<h2 id="public-slots">Public Slots</h2>
+<div class="table"><table class="alignedsummary">
+<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="lifegrid.html#buttonChanged">buttonChanged</a></b>(bool <i>alive</i>, int <i>x</i>, int <i>y</i>)</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="lifegrid.html#changeLifeSize">changeLifeSize</a></b>(int <i>value</i>)</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="lifegrid.html#life_changed">life_changed</a></b>()</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="lifegrid.html#randomize">randomize</a></b>()</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="lifegrid.html#tick">tick</a></b>()</td></tr>
+</table></div>
+<a name="details"></a>
+<!-- $$$LifeGrid-description -->
+<div class="descr">
+<h2 id="details">Detailed Description</h2>
+<p><a href="lifegrid.html">LifeGrid</a> a collection of libebuttons that represents a state of life and provides means to modify it</p>
+</div>
+<!-- @@@LifeGrid -->
+<div class="func">
+<h2>Member Function Documentation</h2>
+<!-- $$$LifeGrid[overload1]$$$LifeGridQWidget* -->
+<h3 class="fn" id="LifeGrid"><a name="LifeGrid"></a>LifeGrid::<span class="name">LifeGrid</span>(<span class="type">QWidget</span> *<i>parent</i> = nullptr)</h3>
+<p>Constructs a <a href="lifegrid.html">LifeGrid</a> widget with <i>parent</i></p>
+<!-- @@@LifeGrid -->
+<!-- $$$buttonChanged[overload1]$$$buttonChangedboolintint -->
+<h3 class="fn" id="buttonChanged"><a name="buttonChanged"></a><code>[slot] </code><span class="type">void</span> LifeGrid::<span class="name">buttonChanged</span>(<span class="type">bool</span> <i>alive</i>, <span class="type">int</span> <i>x</i>, <span class="type">int</span> <i>y</i>)</h3>
+<p>Slot fot LifeButtons to connect <i>alive</i> is the new state of button <i>x</i> and <i>y</i> define button coordinates</p>
+<!-- @@@buttonChanged -->
+<!-- $$$changeLifeSize[overload1]$$$changeLifeSizeint -->
+<h3 class="fn" id="changeLifeSize"><a name="changeLifeSize"></a><code>[slot] </code><span class="type">void</span> LifeGrid::<span class="name">changeLifeSize</span>(<span class="type">int</span> <i>value</i>)</h3>
+<p>Resizes Grid to size of <i>value</i></p>
+<!-- @@@changeLifeSize -->
+<!-- $$$getSize[overload1]$$$getSize -->
+<h3 class="fn" id="getSize"><a name="getSize"></a><span class="type">int</span> LifeGrid::<span class="name">getSize</span>()</h3>
+<p>LifeGrid::getSize Returns <code>size</code> of Life</p>
+<!-- @@@getSize -->
+<!-- $$$life_changed[overload1]$$$life_changed -->
+<h3 class="fn" id="life_changed"><a name="life_changed"></a><code>[slot] </code><span class="type">void</span> LifeGrid::<span class="name">life_changed</span>()</h3>
+<p>Updates ui LifeButtons to correspond Life status</p>
+<!-- @@@life_changed -->
+<!-- $$$randomize[overload1]$$$randomize -->
+<h3 class="fn" id="randomize"><a name="randomize"></a><code>[slot] </code><span class="type">void</span> LifeGrid::<span class="name">randomize</span>()</h3>
+<p>Randomizes life grid status</p>
+<!-- @@@randomize -->
+<!-- $$$tick[overload1]$$$tick -->
+<h3 class="fn" id="tick"><a name="tick"></a><code>[slot] </code><span class="type">void</span> LifeGrid::<span class="name">tick</span>()</h3>
+<p>Advances the life by one step.</p>
+<!-- @@@tick -->
+</div>
+</body>
+</html>

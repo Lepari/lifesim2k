@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- life.cpp -->
+  <title>Life Class | Qt </title>
+</head>
+<body>
+<li>Life</li>
+<div class="sidebar">
+<div class="toc">
+<h3><a name="toc">Contents</a></h3>
+<ul>
+<li class="level1"><a href="#public-functions">Public Functions</a></li>
+<li class="level1"><a href="#public-slots">Public Slots</a></li>
+<li class="level1"><a href="#details">Detailed Description</a></li>
+</ul>
+</div>
+<div class="sidebar-content" id="sidebar-content"></div></div>
+<h1 class="title">Life Class</h1>
+<!-- $$$Life-brief -->
+<p>The Life class represents state of the life and contains methods for modifying it <a href="#details">More...</a></p>
+<!-- @@@Life -->
+<div class="table"><table class="alignedsummary">
+<tr><td class="memItemLeft rightAlign topAlign"> Header:</td><td class="memItemRight bottomAlign"> <span class="preprocessor">#include &lt;Life&gt;</span>
+</td></tr></table></div><ul>
+<li><a href="life-members.html">List of all members, including inherited members</a></li>
+</ul>
+<a name="public-functions"></a>
+<h2 id="public-functions">Public Functions</h2>
+<div class="table"><table class="alignedsummary">
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="life.html#Life">Life</a></b>(int <i>size</i>)</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> bool </td><td class="memItemRight bottomAlign"><b><a href="life.html#getStatus">getStatus</a></b>(int <i>x</i>, int <i>y</i>)</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> int </td><td class="memItemRight bottomAlign"><b><a href="life.html#getsize">getsize</a></b>()</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="life.html#randomize">randomize</a></b>()</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="life.html#setAlive">setAlive</a></b>(int <i>x</i>, int <i>y</i>)</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="life.html#setDead">setDead</a></b>(int <i>x</i>, int <i>y</i>)</td></tr>
+</table></div>
+<a name="public-slots"></a>
+<h2 id="public-slots">Public Slots</h2>
+<div class="table"><table class="alignedsummary">
+<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="life.html#tick">tick</a></b>()</td></tr>
+</table></div>
+<a name="details"></a>
+<!-- $$$Life-description -->
+<div class="descr">
+<h2 id="details">Detailed Description</h2>
+<p>The Life class represents state of the life and contains methods for modifying it</p>
+<p>Only NxN size lifes are supported without resizing. Borders of grid are treated periodic boundary conditions. emits signal life_changed() when state of the life is changed using <a href="life.html#tick">tick</a>() or <a href="life.html#randomize">randomize</a>().</p>
+</div>
+<!-- @@@Life -->
+<div class="func">
+<h2>Member Function Documentation</h2>
+<!-- $$$Life[overload1]$$$Lifeint -->
+<h3 class="fn" id="Life"><a name="Life"></a>Life::<span class="name">Life</span>(<span class="type">int</span> <i>size</i>)</h3>
+<p>Constructs a Life with square <i>size</i> given</p>
+<!-- @@@Life -->
+<!-- $$$getStatus[overload1]$$$getStatusintint -->
+<h3 class="fn" id="getStatus"><a name="getStatus"></a><span class="type">bool</span> Life::<span class="name">getStatus</span>(<span class="type">int</span> <i>x</i>, <span class="type">int</span> <i>y</i>)</h3>
+<p>Returns <code>true</code> if cell in coordinates <i>x</i>, <i>y</i> is alive If x or y point outside of table they are shifted towards table in steps of life size. This makes life grid behave in cyclic manner at the borders</p>
+<!-- @@@getStatus -->
+<!-- $$$getsize[overload1]$$$getsize -->
+<h3 class="fn" id="getsize"><a name="getsize"></a><span class="type">int</span> Life::<span class="name">getsize</span>()</h3>
+<p>Returns the <code>size</code> of life grid as integer</p>
+<!-- @@@getsize -->
+<!-- $$$randomize[overload1]$$$randomize -->
+<h3 class="fn" id="randomize"><a name="randomize"></a><span class="type">void</span> Life::<span class="name">randomize</span>()</h3>
+<p>Randomly sets all cells in life to be either alive or dead with 50/50 % propability</p>
+<!-- @@@randomize -->
+<!-- $$$setAlive[overload1]$$$setAliveintint -->
+<h3 class="fn" id="setAlive"><a name="setAlive"></a><span class="type">void</span> Life::<span class="name">setAlive</span>(<span class="type">int</span> <i>x</i>, <span class="type">int</span> <i>y</i>)</h3>
+<p>Sets cell with coordinates <i>x</i>, <i>y</i> to be alive</p>
+<!-- @@@setAlive -->
+<!-- $$$setDead[overload1]$$$setDeadintint -->
+<h3 class="fn" id="setDead"><a name="setDead"></a><span class="type">void</span> Life::<span class="name">setDead</span>(<span class="type">int</span> <i>x</i>, <span class="type">int</span> <i>y</i>)</h3>
+<p>Sets cell with coordinates <i>x</i>, <i>y</i> to be dead</p>
+<!-- @@@setDead -->
+<!-- $$$tick[overload1]$$$tick -->
+<h3 class="fn" id="tick"><a name="tick"></a><code>[slot] </code><span class="type">void</span> Life::<span class="name">tick</span>()</h3>
+<p>Makes the life state progress one step foward</p>
+<!-- @@@tick -->
+</div>
+</body>
+</html>

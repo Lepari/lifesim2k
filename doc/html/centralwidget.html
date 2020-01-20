@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- centralwidget.cpp -->
+  <title>CentralWidget Class | Qt </title>
+</head>
+<body>
+<li>CentralWidget</li>
+<div class="sidebar">
+<div class="toc">
+<h3><a name="toc">Contents</a></h3>
+<ul>
+<li class="level1"><a href="#public-functions">Public Functions</a></li>
+<li class="level1"><a href="#public-slots">Public Slots</a></li>
+<li class="level1"><a href="#details">Detailed Description</a></li>
+</ul>
+</div>
+<div class="sidebar-content" id="sidebar-content"></div></div>
+<h1 class="title">CentralWidget Class</h1>
+<!-- $$$CentralWidget-brief -->
+<p>Central Widget of lifesim2k project main window. <a href="#details">More...</a></p>
+<!-- @@@CentralWidget -->
+<div class="table"><table class="alignedsummary">
+<tr><td class="memItemLeft rightAlign topAlign"> Header:</td><td class="memItemRight bottomAlign"> <span class="preprocessor">#include &lt;CentralWidget&gt;</span>
+</td></tr></table></div><ul>
+<li><a href="centralwidget-members.html">List of all members, including inherited members</a></li>
+</ul>
+<a name="public-functions"></a>
+<h2 id="public-functions">Public Functions</h2>
+<div class="table"><table class="alignedsummary">
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="centralwidget.html#CentralWidget">CentralWidget</a></b>(QWidget *<i>parent</i> = nullptr)</td></tr>
+</table></div>
+<a name="public-slots"></a>
+<h2 id="public-slots">Public Slots</h2>
+<div class="table"><table class="alignedsummary">
+<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="centralwidget.html#clear">clear</a></b>()</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="centralwidget.html#resizeLife">resizeLife</a></b>(int <i>size</i>)</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="centralwidget.html#sizeChanged">sizeChanged</a></b>(int <i>size</i>)</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="centralwidget.html#speedChanged">speedChanged</a></b>(int <i>refresh_rate</i>)</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="centralwidget.html#start">start</a></b>()</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="centralwidget.html#stop">stop</a></b>()</td></tr>
+</table></div>
+<a name="details"></a>
+<!-- $$$CentralWidget-description -->
+<div class="descr">
+<h2 id="details">Detailed Description</h2>
+<p>Central Widget of lifesim2k project main window.</p>
+<p>Contains all widgets and top level functionality of this software.</p>
+</div>
+<!-- @@@CentralWidget -->
+<div class="func">
+<h2>Member Function Documentation</h2>
+<!-- $$$CentralWidget[overload1]$$$CentralWidgetQWidget* -->
+<h3 class="fn" id="CentralWidget"><a name="CentralWidget"></a>CentralWidget::<span class="name">CentralWidget</span>(<span class="type">QWidget</span> *<i>parent</i> = nullptr)</h3>
+<p>Constructs <a href="centralwidget.html">CentralWidget</a> with parent widget <i>parent</i></p>
+<!-- @@@CentralWidget -->
+<!-- $$$clear[overload1]$$$clear -->
+<h3 class="fn" id="clear"><a name="clear"></a><code>[slot] </code><span class="type">void</span> CentralWidget::<span class="name">clear</span>()</h3>
+<p>Sets all life cells to &quot;dead&quot; state</p>
+<!-- @@@clear -->
+<!-- $$$resizeLife[overload1]$$$resizeLifeint -->
+<h3 class="fn" id="resizeLife"><a name="resizeLife"></a><code>[slot] </code><span class="type">void</span> CentralWidget::<span class="name">resizeLife</span>(<span class="type">int</span> <i>size</i>)</h3>
+<p>Resizes the life to <i>size</i></p>
+<!-- @@@resizeLife -->
+<!-- $$$sizeChanged[overload1]$$$sizeChangedint -->
+<h3 class="fn" id="sizeChanged"><a name="sizeChanged"></a><code>[slot] </code><span class="type">void</span> CentralWidget::<span class="name">sizeChanged</span>(<span class="type">int</span> <i>size</i>)</h3>
+<p>Slot which resizes the life size and updates widget to <i>size</i></p>
+<!-- @@@sizeChanged -->
+<!-- $$$speedChanged[overload1]$$$speedChangedint -->
+<h3 class="fn" id="speedChanged"><a name="speedChanged"></a><code>[slot] </code><span class="type">void</span> CentralWidget::<span class="name">speedChanged</span>(<span class="type">int</span> <i>refresh_rate</i>)</h3>
+<p>Changes the refresh speed of game of life as <i>refresh_rate</i> in herz</p>
+<!-- @@@speedChanged -->
+<!-- $$$start[overload1]$$$start -->
+<h3 class="fn" id="start"><a name="start"></a><code>[slot] </code><span class="type">void</span> CentralWidget::<span class="name">start</span>()</h3>
+<p>Starts the game of life from progressing at speed set by <a href="centralwidget.html#speedChanged">speedChanged</a></p>
+<!-- @@@start -->
+<!-- $$$stop[overload1]$$$stop -->
+<h3 class="fn" id="stop"><a name="stop"></a><code>[slot] </code><span class="type">void</span> CentralWidget::<span class="name">stop</span>()</h3>
+<p>Stops the game of life from progressing</p>
+<!-- @@@stop -->
+</div>
+</body>
+</html>
