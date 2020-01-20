@@ -21,13 +21,13 @@ class CentralWidget : public QWidget
 public:
     explicit CentralWidget(QWidget *parent = nullptr);
 private:
-    QVBoxLayout *m_top_layout;
-    QHBoxLayout *m_button_layout;
-    LifeGrid *m_grid_widget;
+    QVBoxLayout *m_topLayout;
+    QHBoxLayout *m_buttonLayout;
+    LifeGrid *m_gridWidget;
     QSpacerItem *m_button_pacer;
-    QTimer *m_tick_timer;
-    QPushButton *m_start_button;
-    QPushButton *m_stop_button;
+    QTimer *m_tickTimer;
+    QPushButton *m_startButton;
+    QPushButton *m_stopButton;
 public slots:
     void sizeChanged(int size);
     void speedChanged(int refresh_rate);

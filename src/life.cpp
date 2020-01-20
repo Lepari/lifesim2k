@@ -57,7 +57,7 @@ void Life::randomize(){
             m_life[i][j] = rand()%2;
         }
     }
-    emit life_changed();
+    emit lifeChanged();
 }
 
 /*!
@@ -86,46 +86,43 @@ Makes the life state progress one step foward
 void Life::tick(){
     //Create empty life state
     QVector<bool> rowVector(m_size, false);
-    QVector<QVector<bool>> next_life = QVector<QVector<bool>> (m_size, rowVector);
+    QVector<QVector<bool>> nextLife = QVector<QVector<bool>> (m_size, rowVector);
     for (int i = 0; i < m_size; i++) {
         for (int j = 0; j < m_size; j++) {
             //count alive neighbours
             int alive_neighbours = 0;
-            if(this->getStatus(i-1,j-1))
+            if (this ->getStatus(i-1, j-1))
                 alive_neighbours++;
-            if(this->getStatus(i-1,j))
+            if (this ->getStatus(i-1, j))
                 alive_neighbours++;
-            if(this->getStatus(i-1,j+1))
+            if (this ->getStatus(i-1, j+1))
                 alive_neighbours++;
-            if(this->getStatus(i+1,j-1))
+            if (this ->getStatus(i+1, j-1))
                 alive_neighbours++;
-            if(this->getStatus(i+1,j))
+            if (this ->getStatus(i+1, j))
                 alive_neighbours++;
-            if(this->getStatus(i+1,j+1))
+            if (this ->getStatus(i+1, j+1))
                 alive_neighbours++;
-            if(this->getStatus(i,j+1))
+            if (this ->getStatus(i, j+1))
                 alive_neighbours++;
-            if(this->getStatus(i,j-1))
+            if (this ->getStatus(i, j-1))
                 alive_neighbours++;
             //branch acording to current life status
-            if(this->getStatus(i,j)){
+            if (this ->getStatus(i, j)) {
                 //if cell i j is alive
-                if(alive_neighbours <= 1 || alive_neighbours >= 4){
-                    next_life[i][j] = false;
-                }
-                else{
-                    next_life[i][j] = true;
-                }
-            }else{
+                if (alive_neighbours <= 1 || alive_neighbours >= 4)
+                    nextLife[i][j] = false;
+                else
+                    nextLife[i][j] = true;
+            } else {
                 //if the cell is dead
-                if(alive_neighbours==3){
-                    next_life[i][j] = true;
-                }else{
-                    next_life[i][j] = false;
-                }
+                if (alive_neighbours==3){
+                    nextLife[i][j] = true;
+                } else
+                    nextLife[i][j] = false;
             }
         }
     }
-    m_life = next_life;
-    emit life_changed();
+    m_life = nextLife;
+    emit lifeChanged();
 }

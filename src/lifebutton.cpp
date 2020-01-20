@@ -17,8 +17,8 @@ LifeButton::LifeButton(int x, int y, QWidget *parent) : QToolButton(parent)
     m_x = x;
     m_y = y;
     connect(this, SIGNAL(toggled(bool)), this, SLOT(setAlive(bool)));
-    this->setCheckable(true);
-    this->setAlive(false);
+    this ->setCheckable(true);
+    this ->setAlive(false);
 }
 
 
@@ -29,17 +29,17 @@ void LifeButton::setAlive(bool status)
 {
     bool changed = status != m_alive;
     m_alive = status;
-    if(status){
-        QPixmap pix = QPixmap(15,15);
+    if (status) {
+        QPixmap pix = QPixmap(15, 15);
         pix.fill(Qt::black);
-        this->setIcon(pix);
+        this ->setIcon(pix);
     }
     else{
-        QPixmap pix = QPixmap(15,15);
+        QPixmap pix = QPixmap(15, 15);
         pix.fill(Qt::white);
-        this->setIcon(pix);
+        this ->setIcon(pix);
     }
-    if (changed){
-        emit alive_changed(m_alive, m_x, m_y);
+    if (changed) {
+        emit aliveChanged(m_alive, m_x, m_y);
     }
 }

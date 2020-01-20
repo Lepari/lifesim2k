@@ -15,7 +15,7 @@ class LifeGrid : public QWidget
 public slots:
     void changeLifeSize(int value);
     void buttonChanged(bool alive, int x, int y);
-    void life_changed();
+    void lifeChanged();
     void randomize();
     void tick();
 public:
@@ -25,9 +25,9 @@ private:
     int m_size;
     QVector<QVector<LifeButton*> > m_buttons;
     void populateLifeButtons();
-    QGridLayout *m_grid_layout = nullptr;
-    QHBoxLayout *m_top_layout= nullptr;
-    QVBoxLayout *m_middle_layout= nullptr;
+    QGridLayout *m_gridLayout = nullptr;
+    QHBoxLayout *m_topLayout= nullptr;
+    QVBoxLayout *m_middleLayout= nullptr;
     Life * m_life;
 signals:
 

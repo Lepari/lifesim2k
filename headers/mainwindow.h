@@ -11,7 +11,7 @@ class MainWindow : public QMainWindow
 public slots:
 
 private:
-    CentralWidget* m_central;
+    CentralWidget *m_central;
 public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();

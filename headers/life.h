@@ -20,7 +20,7 @@ private:
    QVector<QVector<bool>> m_life;
    int m_size;
 signals:
-   void life_changed();
+   void lifeChanged();
 };
 
 #endif // LIFE_H
