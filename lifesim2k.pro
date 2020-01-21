@@ -37,4 +37,5 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
 DISTFILES += \
-    doc/config.qdocconf
+    doc/config.qdocconf \
+    readme.md
