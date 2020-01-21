@@ -53,7 +53,7 @@ void LifeGrid::populateLifeButtons()
     for (int i = 0; i < m_size; i++) {
         for (int j = 0; j < m_size; j++) {
             LifeButton *button = new LifeButton(i, j, this);
-            connect(button, SIGNAL(alive_changed(bool, int, int)), this, SLOT(buttonChanged(bool, int, int)));
+            connect(button, SIGNAL(aliveChanged(bool, int, int)), this, SLOT(buttonChanged(bool, int, int)));
             button->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);
             button->setEnabled(true);
             m_buttons[i][j] = button;
